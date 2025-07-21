@@ -11,14 +11,12 @@ echo "==> Refrescando paquetes y asegurando dependencias del sistema"
 sudo DEBIAN_FRONTEND=noninteractive apt-get update -yq
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq python3-venv python3-dev build-essential
 
-echo "==> Creando entorno virtual"
-python3 -m venv venv
+echo "==> Creando entorno virtual con sudo"
+sudo python3 -m venv /home/ubuntu/iot_backend_deploy/venv
 
-echo "==> Activando entorno virtual"
-source venv/bin/activate
-
-echo "==> Instalando dependencias del proyecto en entorno virtual"
-pip install --upgrade pip
-pip install -r requirements.txt
+echo "==> Instalando dependencias en entorno virtual"
+# Ejecuta pip desde el venv directamente sin 'source'
+/home/ubuntu/iot_backend_deploy/venv/bin/pip install --upgrade pip
+/home/ubuntu/iot_backend_deploy/venv/bin/pip install -r requirements.txt
 
 echo "==> Instalación completada exitosamente"
