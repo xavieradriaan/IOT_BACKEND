@@ -3,6 +3,9 @@ set -e
 
 cd /home/ubuntu/iot_backend_deploy
 
+echo "==> Tomando propiedad del directorio de trabajo"
+sudo chown -R ubuntu:ubuntu .
+
 echo "==> Verificando instalación de Python3 y pip3"
 which python3 || sudo apt-get install -y python3
 which pip3 || sudo apt-get install -y python3-pip
